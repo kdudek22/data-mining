@@ -55,7 +55,7 @@ def scrape_single_listings() -> list[ListingInfo]:
 
     res_dict = [attrs.asdict(listing) for listing in res]
 
-    with open("results.json", "w", encoding="utf-8") as json_file:
+    with open("data/results.json", "w", encoding="utf-8") as json_file:
         json.dump(list(res_dict), json_file, indent=4, ensure_ascii=False)
 
     logger.info(f"saved to a file {len(res_dict)} scraped listings")

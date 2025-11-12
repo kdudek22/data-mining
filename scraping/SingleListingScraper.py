@@ -21,7 +21,6 @@ class ListingInfo:
     description: str
     price: str
     parameters: list[str]
-    views: str
 
 
 class SingleListingScraper:
@@ -67,7 +66,6 @@ class SingleListingScraper:
                 id=self.driver.find_element(*SeleniumSelectors.LISTING_ID).text,
                 description=self.driver.find_element(*SeleniumSelectors.LISTING_DESCRIPTION).text,
                 parameters=[p.text for p in self.driver.find_element(*SeleniumSelectors.LISTING_PARAMETERS).find_elements(*SeleniumSelectors.LISTING_PARAMETER)],
-                views=self.driver.find_element(*SeleniumSelectors.LISTING_VIEWS).text,
             )
         except:
             logger.error(f"Could not get listing info for {url}")
